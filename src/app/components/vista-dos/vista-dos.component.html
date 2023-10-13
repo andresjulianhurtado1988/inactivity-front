@@ -1,0 +1,119 @@
+<div class="container m-5">
+  <div class="row">
+    <div class="col-md-6" *ngIf="letShow.miBoton">
+      <button
+        class="btn btn-success"
+        (click)="generarExcel()"
+        [disabled]="letShow.inhabilitar"
+      >
+        Descargar Excel
+      </button>
+    </div>
+    <div class="col-md-6" *ngIf="letShow.barra">
+      <span>Generando reporte</span>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+  <hr />
+  <form
+    autocomplete="off"
+    [formGroup]="form"
+    (ngSubmit)="verTabla()"
+    target="TheWindow"
+  >
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Ingrese un rango de fechas</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input
+            matStartDate
+            placeholder="Start date"
+            formControlName="fechaIni"
+          />
+          <input matEndDate placeholder="End date" formControlName="fechaFin" />
+        </mat-date-range-input>
+
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <small
+        class="text-danger"
+        *ngIf="form.controls['fechaIni']?.errors?.['required'] && form.controls['fechaIni']?.touched"
+      >
+        La fecha inicial es obligatoria
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="form.controls['fechaFin']?.errors?.['required'] && form.controls['fechaFin']?.touched"
+      >
+        La fecha final es obligatoria, no sea idiota
+      </small>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div *ngFor="let cbx of joyeriaFormArray.controls; let i = index">
+          <label formArrayName="joyeria_id">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [formControlName]="i"
+              name="joyeria_id"
+              (change)="datosChange()"
+              [value]="letShow.misJoyerias[i].id"
+            />
+            {{ letShow.misJoyerias[i].nombre }}
+          </label>
+        </div>
+      </div>
+      <div class="col-md-6" *ngIf="letShow.miSelect">
+        <mat-form-field style="width: 100%">
+          <mat-label>Vendedores</mat-label>
+          <mat-select formControlName="vendedor_id" multiple cdkFocusInitial>
+            <mat-option *ngFor="let ven of letShow.vendedor" [value]="ven.id">
+              {{ ven.nombre_vendedor }} ---- Joyería:
+              {{ ven.nombre }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-8">
+        <button class="btn btn-primary" [disabled]="form.invalid">
+          Filtrar
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row m-5" *ngIf="letShow.noData == true">
+    <div class="alert alert-secondary" role="alert">
+      {{ letShow.message_no_data }}
+    </div>
+  </div>
+
+  <div class="row" *ngIf="letShow.miTabla == true">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Cantidad de Ventas</th>
+          <th scope="col">Nombre de Vendedor</th>
+          <th scope="col">Joyería</th>
+          <th scope="col">Fecha Venta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datos of letShow.datosFiltrados">
+          <td>{{ datos.cantidad }}</td>
+          <td>{{ datos.nombre_vendedor }}</td>
+          <td>{{ datos.nombre }}</td>
+          <td>{{ datos.fecha_venta }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

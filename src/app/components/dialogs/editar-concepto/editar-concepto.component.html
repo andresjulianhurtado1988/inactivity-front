@@ -1,0 +1,49 @@
+<div class="container m-5">
+  <div class="row">
+    <form
+      autocomplete="off"
+      [formGroup]="form"
+      (ngSubmit)="editar_concepto()"
+      target="TheWindow"
+      class="example-form"
+    >
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="all-space-input">
+            <mat-label>Concepto</mat-label>
+            <mat-select formControlName="conceptos_id">
+              <mat-option
+                *ngFor="let cue of allConceptos"
+                [value]="cue.id_concepto_contable"
+              >
+                {{ cue.concepto }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+          <mat-form-field class="all-space-input">
+            <mat-label>Cuentas</mat-label>
+            <mat-select formControlName="cuentas" multiple cdkFocusInitial>
+              <mat-option
+                *ngFor="let count of counts"
+                [disabled]="input_disabled"
+                [value]="count.cuenta"
+              >
+                {{ count.cuenta }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <br />
+      <hr />
+      <br />
+    </form>
+  </div>
+  <br />
+  <hr />
+  <br />
+</div>

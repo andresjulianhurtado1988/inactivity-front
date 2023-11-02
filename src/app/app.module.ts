@@ -19,10 +19,18 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BarraComponent } from './components/barra/barra.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { VistaTresComponent } from './components/vista-tres/vista-tres.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { EnsayosComponent } from './components/ensayos/ensayos.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { DescripcionConceptosComponent } from './components/dialogs/descripcion-conceptos/descripcion-conceptos.component';
+import { EditarConceptoComponent } from './components/dialogs/editar-concepto/editar-concepto.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +42,10 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     AlertaExcelComponent,
     BarraComponent,
     ProgressBarComponent,
+    VistaTresComponent,
+    EnsayosComponent,
+    DescripcionConceptosComponent,
+    EditarConceptoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +62,11 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [BnNgIdleService],
   bootstrap: [AppComponent],

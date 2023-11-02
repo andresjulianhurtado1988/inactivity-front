@@ -12,15 +12,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { AlertaExcelComponent } from '../modal/alerta-excel/alerta-excel.component';
 import { LetShow } from 'src/app/let-show';
 import {
+  HttpEventType,
+  HttpHeaderResponse,
+  HttpHeaders,
+  HttpResponse,
+} from '@angular/common/http';
+import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
-  MatSnackBarModule,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-vista-dos',
@@ -118,6 +119,7 @@ export class VistaDosComponent {
   }
 
   datosChange() {
+    
     this.form.value.joyeria_id = this.form.value.joyeria_id.map(
       (checked: any, i: number) =>
         checked ? this.letShow.misJoyerias[i].id : null
@@ -152,30 +154,29 @@ export class VistaDosComponent {
     this.letShow.barra = true;
     this.letShow.inhabilitar = true;
 
-    //  this.loading();
-    this._inactivityService.verTabla(this.form.value).subscribe((datos) => {
-      if (datos.ventas.length !== 0) {
-        // console.log(datos.ventas.length);
-        this._inactivityService
-          .crearExcel(this.form.value)
-          .subscribe((data) => {
-            //console.log(HttpEventType.UploadProgress);
-            console.log(data.size);
-            const filename = 'ventas.xlsx';
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(data);
-            link.download = filename;
-            link.click();
-            this.letShow.barra = false;
-            this.letShow.inhabilitar = false;
+    const fileName = null;
 
-            // this.end();
-          });
-      } else {
-        const dialogRef = this.dialog.open(AlertaExcelComponent);
-        this.letShow.inhabilitar = true;
-      }
+    //  this.loading();
+    //  this._inactivityService.verTabla(this.form.value).subscribe((datos) => {
+    //  if (datos.ventas.length !== 0) {
+    // console.log(datos.ventas.length);
+    this._inactivityService.crearExcel(this.form.value).subscribe((data) => {
+      //  console.log(data);
+      const filename = 'ventas.xlsx';
+      var link = document.createElement('a');
+      link.href = window.URL.createObjectURL(data);
+      link.download = filename;
+      link.click();
+      this.letShow.barra = false;
+      this.letShow.inhabilitar = false;
+
+      // this.end();
     });
+    //} else {
+    //const dialogRef = this.dialog.open(AlertaExcelComponent);
+    //this.letShow.inhabilitar = true;
+    //}
+    //  });
   }
 
   loading() {

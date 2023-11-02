@@ -1,74 +1,70 @@
-export const books = {
-  booksList: [
+export const counts = {
+  cuentas: [
     {
-      type: 'Horror',
-      authors: [
-        {
-          name: 'Stephen King',
-          books: [
-            'Revival',
-            'Dark Half',
-            'Pet Sematary',
-            'Misery',
-            'The Girl who loved Tom Gordon',
-          ],
-        },
-        {
-          name: 'Dan Brown',
-          books: [
-            'Origin',
-            'The Da Vinci Code',
-            'Digital Fortress',
-            'Angels and Demons',
-            'Deception Point',
-          ],
-        },
-        {
-          name: 'Katie Macalister',
-          books: [
-            'Dragon Soul',
-            'Fire Born',
-            'Shadow Born',
-            'Life,Love and the Pursuit of Hotties',
-            'Time Crossed',
-          ],
-        },
-      ],
+      num_cuenta: 230505,
     },
     {
-      type: 'Science and Fiction',
-      authors: [
-        {
-          name: 'Jules Verne',
-          books: [
-            'Twenty Thousand Leagues Under the Sea',
-            'Journey to the center of the Earth',
-            'From the Earth to the Moon',
-            'Around the Moon',
-            'Off On a Comet',
-          ],
-        },
-        {
-          name: 'H.G Wells',
-          books: [
-            'The Time Machine',
-            'The War of the Worlds',
-            'The invisible man',
-            'The First Men in the Moon',
-            'The Sleeper awakes',
-          ],
-        },
-        {
-          name: 'Arthur C. Clark',
-          books: [
-            "Childhood's End",
-            'The Sentinel',
-            'The City and the Stars',
-            'The Final Oddyssey',
-            'Rendezvous with Rama',
-          ],
-        },
-      ],
+      num_cuenta: 151605,
+    },
+    {
+      num_cuenta: 525005,
+    },
+    {
+      num_cuenta: 525015,
+    },
+    {
+      num_cuenta: 14351015,
+    },
+    {
+      num_cuenta: 14351005,
+    },
+    {
+      num_cuenta: 14351015,
+    },
+    {
+      num_cuenta: 14351005,
+    },
+    {
+      num_cuenta: 152805,
+    },
+    {
+      num_cuenta: 152405,
+    },
+    {
+      num_cuenta: 525005,
+    },
+    {
+      num_cuenta: 152410,
+    },
+    {
+      num_cuenta: 11100501,
+    },
+    {
+      num_cuenta: 280505,
+    },
+    {
+      num_cuenta: 138095,
+    },
+    {
+      num_cuenta: 138095,
+    },
+    {
+      num_cuenta: 136595,
+    },
+    {
+      num_cuenta: 525505,
+    },
+    {
+      num_cuenta: 525505,
+    },
+    {
+      num_cuenta: 525505,
+    },
+    {
+      num_cuenta: 525505,
+    },
+    {
+      num_cuenta: 525505,
     },
   ],
 };

@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpHeaderResponse,
+  HttpEvent,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -40,8 +45,8 @@ export class InactivityService {
     });
   }
 
-  verEmpleados(pelisQueueObj: any): Observable<any> {
-    let json = JSON.stringify(pelisQueueObj);
+  verEmpleados(joye: any): Observable<any> {
+    let json = JSON.stringify(joye);
     let params = 'json=' + json;
 
     return this._http.post(this.url + 'verEmpleados', params, {
@@ -73,4 +78,17 @@ export class InactivityService {
       responseType: 'blob',
     });
   }
+  // crearExcel(miJson: any): Observable<HttpEvent<any>> {
+  //   let json = JSON.stringify(miJson);
+  //   let params = 'json=' + json;
+
+  //   return this._http.post(this.url + 'createExcel', params, {
+  //     headers: new HttpHeaders({
+  //       'Content-type': 'application/x-www-form-urlencoded',
+  //     }),
+  //     responseType: 'blob',
+  //     reportProgress: true,
+  //     observe: 'events',
+  //   });
+  // }
 }

@@ -31,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DescripcionConceptosComponent } from './components/dialogs/descripcion-conceptos/descripcion-conceptos.component';
 import { EditarConceptoComponent } from './components/dialogs/editar-concepto/editar-concepto.component';
+import { VistaCuatroComponent } from './components/vista-cuatro/vista-cuatro.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { EditarConceptoComponent } from './components/dialogs/editar-concepto/ed
     EnsayosComponent,
     DescripcionConceptosComponent,
     EditarConceptoComponent,
+    VistaCuatroComponent,
   ],
   imports: [
     BrowserModule,

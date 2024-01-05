@@ -1,26 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DescargaService {
+  private urlServicio = 'http://localhost:3000/crear-archivo';
 
-  constructor() { }
+  constructor(private _http: HttpClient) {}
 
-  downloadFile(content: string, fileName: string, fileType: string) {
-    const blob = new Blob([content], { type: fileType });
-
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = fileName;
-
-    // Append the link to the document
-    document.body.appendChild(link);
-
-    // Trigger a click event on the link
-    link.click();
-
-    // Remove the link from the document
-    document.body.removeChild(link);
+  crearArchivo(contenidoArchivo: string): Observable<any> {
+    return this._http.post(this.urlServicio, { contenidoArchivo });
   }
 }

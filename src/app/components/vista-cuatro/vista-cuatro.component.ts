@@ -1,3 +1,4 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DescargaService } from 'src/app/services/descarga.service';
 
@@ -7,21 +8,28 @@ import { DescargaService } from 'src/app/services/descarga.service';
   styleUrls: ['./vista-cuatro.component.css'],
 })
 export class VistaCuatroComponent {
-  constructor(private servicioArchivo: DescargaService) {}
+  constructor(
+    private servicioArchivo: DescargaService,
+    private http: HttpClient
+  ) {}
 
-  generarArchivo() {
-    const textContent = 'contenido del archivo.';
-    const fileName = 'textFile.txt';
-    const fileType = 'text/plain';
+  generarArchivo() {}
 
-    this.servicioArchivo.downloadFile(textContent, fileName, fileType);
+  generandoArchivo() {
+    const contenidoArchivo = 'CONTENIDO DOS';
 
-    /******** */
-    // const blob = new Blob(['prueba de descarga'], { type: 'text/csv' });
-    // const filename = 'holamundo.txt';
-    // var link = document.createElement('a');
-    // link.href = window.URL.createObjectURL(blob);
-    // link.download = filename;
-    // link.click();
+    this.servicioArchivo.crearArchivo(contenidoArchivo).subscribe(
+      (data: any) => {
+        console.log('Respuesta del servidor:', data);
+        if (data && data.mensaje) {
+          console.log('Archivo creado correctamente');
+        } else {
+          console.error('Error en la respuesta del servidor:', data);
+        }
+      },
+      (error) => {
+        console.error('Error en la solicitud al servidor:', error);
+      }
+    );
   }
 }

@@ -7,28 +7,54 @@
       >
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12 ms-5 mt-5">
-      <button class="btn btn-success" (click)="generarArchivo()">
-        Botón para probar archivo (PRUEBA NÚMERO UNO)
-      </button>
+  <form
+    autocomplete="off"
+    [formGroup]="form"
+    (ngSubmit)="generandoArchivo()"
+    target="TheWindow"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" formControlName="ejemplo" />
+        </mat-form-field>
+      </div>
     </div>
-  </div>
 
-  <hr />
-  <div class="row">
-    <div class="col-md-12 ms-5 mt-5">
-      <span style="color: darkblue">
-        <p>ejercicio para guardar un archivo</p></span
-      >
-    </div>
-  </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Ingrese un rango de fechas</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input
+              matStartDate
+              placeholder="Start date"
+              formControlName="fechaIni"
+            />
+            <input
+              matEndDate
+              placeholder="End date"
+              formControlName="fechaFin"
+            />
+          </mat-date-range-input>
 
-  <div class="row">
-    <div class="col-md-12 ms-5 mt-5">
-      <button class="btn btn-primary" (click)="generandoArchivo()">
-        Botón para probar archivo (PRUEBA NÚMERO DOS)
-      </button>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
+
+    <hr />
+    <div class="row">
+      <div class="col-md-12 ms-5 mt-5">
+        <button class="btn btn-primary">
+          Botón para probar archivo (PRUEBA NÚMERO DOS)
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

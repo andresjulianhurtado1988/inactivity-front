@@ -9,14 +9,8 @@ import {
 } from '@angular/forms';
 
 import { MatDialog } from '@angular/material/dialog';
-import { AlertaExcelComponent } from '../modal/alerta-excel/alerta-excel.component';
 import { LetShow } from 'src/app/let-show';
-import {
-  HttpEventType,
-  HttpHeaderResponse,
-  HttpHeaders,
-  HttpResponse,
-} from '@angular/common/http';
+
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -119,7 +113,6 @@ export class VistaDosComponent {
   }
 
   datosChange() {
-    
     this.form.value.joyeria_id = this.form.value.joyeria_id.map(
       (checked: any, i: number) =>
         checked ? this.letShow.misJoyerias[i].id : null

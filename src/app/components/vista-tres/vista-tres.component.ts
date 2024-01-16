@@ -1,19 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { CuentasService } from 'src/app/services/cuentas.service';
 import { MostrarDatos } from 'src/app/vista-tres';
 
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialog } from '@angular/material/dialog';
 import { DescripcionConceptosComponent } from '../dialogs/descripcion-conceptos/descripcion-conceptos.component';
 import { EditarConceptoComponent } from '../dialogs/editar-concepto/editar-concepto.component';
@@ -53,7 +43,6 @@ export class VistaTresComponent {
   }
 
   ngOnInit(): void {
-
     this.optionSelected(this.mostrarDatos.is_checked);
   }
 

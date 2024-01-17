@@ -16,9 +16,7 @@ import { DescargaService } from 'src/app/services/descarga.service';
 })
 export class VistaCuatroComponent {
   public form: FormGroup;
-  public today = new Date();
-  public formattedDate: string | null;
-  public misJoyerias: any[] = [];
+
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 5;
@@ -30,17 +28,13 @@ export class VistaCuatroComponent {
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
   ) {
-    this.formattedDate = this.datePipe.transform(this.today, 'yyyy-MM-dd');
     this.form = this.fb.group({
       fechaIni: [''],
       fechaFin: [''],
-      ejemplo: [''],
     });
   }
 
   generandoArchivo() {
-    // const contenido = this.form.value.ejemplo;
-
     const contenido = [
       'Hamburguesa',
       'Pizza',
@@ -49,8 +43,6 @@ export class VistaCuatroComponent {
       'Tacos',
       'Sushi',
     ];
-
-    this.ruta = 'agregar-contenido';
 
     let fechaIni = this.datePipe.transform(
       this.form.value.fechaIni,

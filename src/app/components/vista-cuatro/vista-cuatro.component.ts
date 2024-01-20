@@ -77,7 +77,7 @@ export class VistaCuatroComponent {
         catchError((error) => {
           if (error.status === 403) {
             const mensajeSinPermisos =
-              'No tienes permisos de lectura o escritura. Comuníquese con su administrador';
+              'No cuenta con permisos de lectura o escritura. Comuníquese con soporte TI';
 
             this.openSnackBar(mensajeSinPermisos);
           } else {

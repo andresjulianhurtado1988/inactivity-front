@@ -16,6 +16,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { AlertaExcelComponent } from '../modal/alerta-excel/alerta-excel.component';
 
 @Component({
   selector: 'app-export-excel',
@@ -40,7 +41,7 @@ export class ExportExcelComponent {
     message_no_data: 'No hay datos que mostrar...',
     arrayJoyerias: [],
     vendedor: [],
-    mensaje_reporte: 'Generando reporte...',
+    mensaje_reporte: 'Generandoooo reporte...',
   };
 
   get joyeriaFormArray() {
@@ -146,44 +147,24 @@ export class ExportExcelComponent {
   generarExcel() {
     this.letShow.barra = true;
     this.letShow.inhabilitar = true;
-
-    const fileName = null;
-
-    //  this.loading();
-    //  this._inactivityService.verTabla(this.form.value).subscribe((datos) => {
-    //  if (datos.ventas.length !== 0) {
-    // console.log(datos.ventas.length);
-    this._inactivityService.crearExcel(this.form.value).subscribe((data) => {
-      //  console.log(data);
-      const filename = 'ventas.xlsx';
-      var link = document.createElement('a');
-      link.href = window.URL.createObjectURL(data);
-      link.download = filename;
-      link.click();
-      this.letShow.barra = false;
-      this.letShow.inhabilitar = false;
-
-      // this.end();
-    });
-    //} else {
-    //const dialogRef = this.dialog.open(AlertaExcelComponent);
-    //this.letShow.inhabilitar = true;
-    //}
-    //  });
-  }
-
-  loading() {
-    this._snackBar.open('Alerta...', '', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-    });
-  }
-
-  end() {
-    this._snackBar.open('', 'Mensaje', {
-      horizontalPosition: 'left',
-      verticalPosition: 'top',
-      duration: this.durationInSeconds * 1000,
+    this._inactivityService.verTabla(this.form.value).subscribe((datos) => {
+      if (datos.ventas.length !== 0) {
+        this._inactivityService
+          .crearExcel(this.form.value)
+          .subscribe((data) => {
+            console.log(data);
+            const filename = 'ventas.xlsx';
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(data);
+            link.download = filename;
+            link.click();
+            this.letShow.barra = false;
+            this.letShow.inhabilitar = false;
+          });
+      } else {
+        const dialogRef = this.dialog.open(AlertaExcelComponent);
+        this.letShow.inhabilitar = true;
+      }
     });
   }
 }

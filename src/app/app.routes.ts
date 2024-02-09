@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { VistaDosComponent } from './components/vista-dos/vista-dos.component';
-import { VistaCuatroComponent } from './components/vista-cuatro/vista-cuatro.component';
+import { ExportExcelComponent } from './components/export-excel/export-excel.component';
+import { GenerarArchivoComponent } from './components/generar-archivo/generar-archivo.component';
 
 export const ROUTES: Routes = [
-  { path: 'exportar-excel', component: VistaDosComponent },
-  { path: 'generar-archivo', component: VistaCuatroComponent },
+  { path: 'exportar-excel', component: ExportExcelComponent },
+  { path: 'generar-archivo', component: GenerarArchivoComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'exportar-excel' },
 ];

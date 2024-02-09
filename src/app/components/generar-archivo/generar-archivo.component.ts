@@ -10,13 +10,14 @@ import { data } from 'src/app/global/data';
 import { DescargaService } from 'src/app/services/descarga.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+
 @Component({
-  selector: 'app-vista-cuatro',
-  templateUrl: './vista-cuatro.component.html',
-  styleUrls: ['./vista-cuatro.component.css'],
+  selector: 'app-generar-archivo',
+  templateUrl: './generar-archivo.component.html',
+  styleUrls: ['./generar-archivo.component.css'],
   providers: [DatePipe],
 })
-export class VistaCuatroComponent {
+export class GenerarArchivoComponent {
   public form: FormGroup;
   public datos = data.datos;
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';

@@ -5,9 +5,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { VistaDosComponent } from './components/vista-dos/vista-dos.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
-import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service
+import { BnNgIdleService } from 'bn-ng-idle';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertaComponent } from './components/modal/alerta/alerta.component';
@@ -22,7 +21,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BarraComponent } from './components/barra/barra.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { VistaTresComponent } from './components/vista-tres/vista-tres.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -30,21 +28,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DescripcionConceptosComponent } from './components/dialogs/descripcion-conceptos/descripcion-conceptos.component';
 import { EditarConceptoComponent } from './components/dialogs/editar-concepto/editar-concepto.component';
-import { VistaCuatroComponent } from './components/vista-cuatro/vista-cuatro.component';
+import { ExportExcelComponent } from './components/export-excel/export-excel.component';
+import { GenerarArchivoComponent } from './components/generar-archivo/generar-archivo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VistaDosComponent,
     NavegacionComponent,
     AlertaComponent,
     AlertaExcelComponent,
     BarraComponent,
-    ProgressBarComponent,
     VistaTresComponent,
     DescripcionConceptosComponent,
     EditarConceptoComponent,
-    VistaCuatroComponent,
+    ExportExcelComponent,
+    GenerarArchivoComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,11 +18,11 @@ import {
 } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-vista-dos',
-  templateUrl: './vista-dos.component.html',
-  styleUrls: ['./vista-dos.component.css'],
+  selector: 'app-export-excel',
+  templateUrl: './export-excel.component.html',
+  styleUrls: ['./export-excel.component.css'],
 })
-export class VistaDosComponent {
+export class ExportExcelComponent {
   public form: FormGroup;
   today = new Date();
   durationInSeconds = 5;
@@ -40,7 +40,7 @@ export class VistaDosComponent {
     message_no_data: 'No hay datos que mostrar...',
     arrayJoyerias: [],
     vendedor: [],
-    mensaje_reporte: 'Genrando reporte...',
+    mensaje_reporte: 'Generando reporte...',
   };
 
   get joyeriaFormArray() {
@@ -173,14 +173,14 @@ export class VistaDosComponent {
   }
 
   loading() {
-    this._snackBar.open('Que mira, sapa setenta hijuepu...', '', {
+    this._snackBar.open('Alerta...', '', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
   }
 
   end() {
-    this._snackBar.open('', 'Suerte Gonorsobia', {
+    this._snackBar.open('', 'Mensaje', {
       horizontalPosition: 'left',
       verticalPosition: 'top',
       duration: this.durationInSeconds * 1000,

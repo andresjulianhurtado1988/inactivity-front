@@ -1,9 +1,9 @@
 export const data = {
   datos: [
-    'Alissía Óndrak',
-    'Cárter Óndrak "The Red"',
-    'Ratkke Óndrak',
-    'Aidan Óndrak',
-    'Ghena Óndrak',
+    'Armando Mendoza',
+    'Felipe Machado',
+    'Katalina Gonzales',
+    'Adán Molina',
+    'Raquel Uribe',
   ],
 };

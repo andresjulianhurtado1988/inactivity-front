@@ -4,7 +4,7 @@ import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { VistaUnoComponent } from './components/vista-uno/vista-uno.component';
+
 import { VistaDosComponent } from './components/vista-dos/vista-dos.component';
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { BnNgIdleService } from 'bn-ng-idle'; // import bn-ng-idle service
@@ -25,7 +25,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { VistaTresComponent } from './components/vista-tres/vista-tres.component';
 import { MatRadioModule } from '@angular/material/radio';
-import { EnsayosComponent } from './components/ensayos/ensayos.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -36,7 +35,6 @@ import { VistaCuatroComponent } from './components/vista-cuatro/vista-cuatro.com
 @NgModule({
   declarations: [
     AppComponent,
-    VistaUnoComponent,
     VistaDosComponent,
     NavegacionComponent,
     AlertaComponent,
@@ -44,7 +42,6 @@ import { VistaCuatroComponent } from './components/vista-cuatro/vista-cuatro.com
     BarraComponent,
     ProgressBarComponent,
     VistaTresComponent,
-    EnsayosComponent,
     DescripcionConceptosComponent,
     EditarConceptoComponent,
     VistaCuatroComponent,
